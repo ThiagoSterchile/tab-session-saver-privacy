@@ -1,35 +1,49 @@
 # Tab Session Saver — Privacy Policy
 
-Version 1.1.0 · Prepared September 7, 2026
+Version 1.1.1 · Commercial release preparation
 
-Tab Session Saver stores your sessions in your local Chrome profile. A saved session contains the URLs, titles and pinned state of HTTP/HTTPS tabs, window structure, a session name and creation time. It does not read page contents, cookies, passwords or form entries, and it excludes incognito windows.
+Tab Session Saver stores saved sessions in your local Chrome profile. A session
+contains the URLs, titles and pinned state of HTTP/HTTPS tabs, window structure, a
+session name and creation time. It does not read page contents, cookies, passwords
+or form entries, and it excludes incognito windows.
 
 ## Storage and retention
 
-Session data and backup preferences use chrome.storage.local, not cloud sync. Manual sessions remain until you delete them. Automatic backup retention, when Pro is available and enabled, removes only older automatic snapshots according to your selected count when a new snapshot is saved. A plan or license change does not remove or hide saved sessions.
+Session data, backup preferences and optional local counters use
+`chrome.storage.local`, not cloud sync. Manual sessions remain until you delete
+them. A plan or license change never removes or hides saved sessions. You can export
+a rescue JSON in any plan; that file contains saved links and titles, so store it
+carefully.
 
-You can download a rescue JSON in any plan. That file, imported JSON and clipboard exports contain saved links and titles: store and share them with care. Deleting the extension or its local data removes sessions, settings and counters. Local storage has a finite Chrome quota. Backups in the same profile do not protect against device loss and are not encrypted by this extension.
+## Payments and license verification
 
-## Local usage counters
+Checkout is provided by Gumroad. Gumroad processes the purchase information that you
+provide at checkout under its own privacy practices. The extension never sends saved
+sessions, URLs, titles, browsing history, cookies, passwords or form entries to
+Gumroad.
 
-Settings includes an optional local-only set of counters: installation, first manual session saved, backup intent, backup enabled, upgrade clicks, and license activation. Development builds keep a separate simulation counter that is not a purchase. Counters contain no URLs, titles, names, email, payment data, identifiers or event timestamps. They are enabled locally by default, never transmitted, and can be viewed, reset or turned off. Turning them off erases them. Sharing their text with support is entirely your choice; it is never required to use Free.
-
-A generic local last-backup status helps identify a skipped or failed backup. It does not contain browsing data or a raw error log.
-
-## Network and payments
-
-This version has no remote analytics, advertising, checkout, licensing requests or other network integration. It does not sell or send your saved sessions to anyone. When you restore a tab, Chrome visits that website normally, and the website's own privacy practices apply.
-
-Payments and license activation are not available in this version. You should not enter card data into the extension. Before enabling a payment provider, this policy will be updated to name the provider, explain the data sent for licensing, retention and user choices. Purchase information will not include your sessions.
+When you activate or restore Pro, the extension sends only the configured Gumroad
+product identifier and the license key you enter to `api.gumroad.com` over HTTPS.
+It checks that the response belongs to this product and is not refunded, disputed or
+charged back. The extension stores the key, product identifier, active status and
+verification time locally to restore your entitlement; it does not store or log the
+purchase email or the full Gumroad response. Network failure never deletes saved
+sessions.
 
 ## Permissions
 
-- **tabs**: read the URL, title and pinned state of currently open tabs to save a session, and restore selected saved tabs. No history API permission is used.
-- **storage**: keep sessions, preferences and local counters on the device.
-- **alarms**: schedule periodic local backup checks when available and enabled.
+- **tabs**: read the URL, title and pinned state of tabs you choose to save, and
+  open selected saved tabs on restore.
+- **storage**: keep sessions, preferences, local counters and the minimal local
+  license record in the Chrome profile.
+- **alarms**: run periodic local backup checks when enabled.
+- **api.gumroad.com**: verify an entered Gumroad license key. It is not
+  used to transmit session or browsing data.
 
-No host permissions, content scripts, remote code or unlimitedStorage permission are requested. Free remains usable without any external account.
+There are no content scripts, remote code, advertising or cloud sync. Optional
+local counters contain no URLs, titles, names, payment data or identifiers; they are
+never transmitted and can be turned off or reset in Settings.
 
 ## Contact
 
-Support and privacy contact: thiagosterchile@gmail.com
+Support and privacy contact: thiagosterchile@gmail.com.
